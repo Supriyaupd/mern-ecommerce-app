@@ -1,0 +1,47 @@
+.orders-list { display: flex; flex-direction: column; gap: 12px; }
+
+.order-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: border-color var(--transition);
+}
+.order-card:hover { border-color: var(--border-light); }
+
+.order-header {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 20px; background: none; border: none; cursor: pointer;
+  gap: 16px; flex-wrap: wrap;
+}
+.order-header-left { display: flex; align-items: center; gap: 12px; }
+.order-id { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--text-primary); }
+.order-header-right { display: flex; align-items: center; gap: 16px; margin-left: auto; }
+.order-date { font-size: 13px; color: var(--text-muted); }
+.order-total { font-family: var(--font-display); font-weight: 800; font-size: 16px; color: var(--accent); }
+.order-chevron { color: var(--text-muted); font-size: 18px; transition: transform var(--transition); }
+
+.order-body {
+  border-top: 1px solid var(--border); padding: 20px;
+  display: flex; flex-direction: column; gap: 16px;
+  animation: fadeUp 0.2s ease;
+}
+.order-items { display: flex; flex-direction: column; gap: 10px; }
+.order-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px;
+}
+.order-item-name { flex: 1; color: var(--text-secondary); }
+.order-item-qty { color: var(--text-muted); font-size: 13px; }
+.order-item-price { font-family: var(--font-display); font-weight: 700; min-width: 70px; text-align: right; }
+
+.order-shipping {
+  background: var(--bg-raised); border-radius: var(--radius-sm);
+  padding: 12px 14px; display: flex; flex-direction: column; gap: 4px;
+}
+.shipping-addr { font-size: 13px; color: var(--text-secondary); }
+
+.order-summary-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 12px; border-top: 1px solid var(--border);
+  font-weight: 600; font-size: 14px;
+}
+.order-grand-total { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--accent); }
