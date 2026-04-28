@@ -7,7 +7,7 @@ import './ProductsPage.css';
 const CATEGORIES = ['All','Clothing','Books','Home & Garden','Toys','Beauty','Food & Grocery'];
 
 export default function ProductsPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+ const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState({ total: 0, totalPages: 1, currentPage: 1 });

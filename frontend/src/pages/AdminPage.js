@@ -81,10 +81,7 @@ export default function AdminPage() {
   };
 
   const STATUS_OPTS = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
-  const STATUS_BADGES = {
-    pending: 'badge-warning', processing: 'badge-accent',
-    shipped: 'badge-accent', delivered: 'badge-success', cancelled: 'badge-danger'
-  };
+  
 
   return (
     <main className="page">
