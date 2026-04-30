@@ -32,7 +32,7 @@ export const notify = {
  * @returns {string}  e.g. "$49.99"
  */
 export const formatPrice = (value) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+  new Intl.NumberFormat('ne-NP', { style: 'currency', currency: 'NPR' }).format(value);
 
 /**
  * Format an ISO date string to a readable format.

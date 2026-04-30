@@ -74,7 +74,7 @@ export default function CartPage() {
                   </div>
                   <div className="cart-item-info">
                     <Link to={`/products/${p._id}`} className="cart-item-name">{p.name}</Link>
-                    <span className="cart-item-price">${p.price?.toFixed(2)}</span>
+                    <span className="cart-item-price">Rs. {p.price?.toFixed(2)}</span>
                   </div>
                   <div className="cart-item-actions">
                     <div className="quantity-control">
@@ -82,7 +82,7 @@ export default function CartPage() {
                       <span className="qty-val">{item.quantity}</span>
                       <button className="qty-btn" onClick={() => handleQuantityChange(p._id, item.quantity + 1)} disabled={item.quantity >= p.stock}>+</button>
                     </div>
-                    <span className="cart-item-subtotal">${(p.price * item.quantity).toFixed(2)}</span>
+                    <span className="cart-item-subtotal">Rs. {(p.price * item.quantity).toFixed(2)}</span>
                     <button className="btn btn-ghost btn-sm" onClick={() => handleRemove(p._id)}>✕ Remove</button>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function CartPage() {
             <div className="summary-divider" />
             <div className="summary-total">
               <span>Total</span>
-              <span className="total-amount">${cartTotal.toFixed(2)}</span>
+              <span className="total-amount">Rs. {cartTotal.toFixed(2)}</span>
             </div>
 
             {!showCheckout ? (

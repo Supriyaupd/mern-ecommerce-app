@@ -89,7 +89,7 @@ export default function ProductDetailPage() {
           <div className="product-detail-info">
             <span className="badge badge-muted">{product.category}</span>
             <h1 className="product-detail-name">{product.name}</h1>
-            <div className="product-detail-price">${product.price.toFixed(2)}</div>
+            <div className="product-detail-price">Rs. {product.price.toFixed(2)}</div>
 
             <p className="product-detail-desc">{product.description}</p>
 

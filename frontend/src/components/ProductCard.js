@@ -5,8 +5,8 @@ import { useCart } from '../context/CartContext';
 import './ProductCard.css';
 
 const CATEGORIES_EMOJI = {
-  Electronics: '⚡', Clothing: '👕', Books: '📚', 'Home & Garden': '🏡',
-  Sports: '⚽', Toys: '🧸', Beauty: '✨', Automotive: '🚗',
+   Clothing: '👕', Books: '📚', 'Home & Garden': '🏡',
+  Sports: '⚽', Toys: '🧸', Beauty: '✨', 
   'Food & Grocery': '🛒', Other: '📦',
 };
 
@@ -47,7 +47,7 @@ export default function ProductCard({ product, onEdit, onDelete, isAdminView }) 
         <h3 className="product-card-name">{product.name}</h3>
         <p className="product-card-desc">{product.description}</p>
         <div className="product-card-footer">
-          <span className="product-price">${product.price.toFixed(2)}</span>
+          <span className="product-price">Rs. {product.price.toFixed(2)}</span>
           {isAdminView ? (
             <div className="admin-actions" onClick={(e) => e.preventDefault()}>
               <button className="btn btn-ghost btn-sm" onClick={() => onEdit(product)}>Edit</button>

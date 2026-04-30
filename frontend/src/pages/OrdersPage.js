@@ -67,7 +67,7 @@ export default function OrdersPage() {
                   </div>
                   <div className="order-header-right">
                     <span className="order-date">{new Date(order.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-                    <span className="order-total">${order.totalAmount.toFixed(2)}</span>
+                    <span className="order-total">Rs. {order.totalAmount.toFixed(2)}</span>
                     <span className="order-chevron" style={{ transform: isOpen ? 'rotate(180deg)' : 'none' }}>▾</span>
                   </div>
                 </button>
@@ -93,7 +93,7 @@ export default function OrdersPage() {
                     )}
                     <div className="order-summary-row">
                       <span>Total ({order.items.length} item{order.items.length !== 1 ? 's' : ''})</span>
-                      <span className="order-grand-total">${order.totalAmount.toFixed(2)}</span>
+                      <span className="order-grand-total">Rs. {order.totalAmount.toFixed(2)}</span>
                     </div>
                   </div>
                 )}
