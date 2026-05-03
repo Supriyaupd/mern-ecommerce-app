@@ -4,7 +4,7 @@ import API from '../api';
 import ProductCard from '../components/ProductCard';
 import './ProductsPage.css';
 
-const CATEGORIES = ['All','Clothing','Books','Home & Garden','Toys','Beauty','Food & Grocery'];
+const CATEGORIES = ['All','Clothing','Books','Home & Garden','Toys','Beauty','Food & Grocery','Other'];
 
 export default function ProductsPage() {
  const [searchParams] = useSearchParams();
