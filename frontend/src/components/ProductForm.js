@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 const CATEGORIES = ['Electronics','Clothing','Books','Home & Garden','Sports','Toys','Beauty','Automotive','Food & Grocery','Other'];
 
-const EMPTY = { name: '', price: '', description: '', category: '', stock: '', image: null };
+const EMPTY = { name: '', price: '', description: '', category: '', stock: '', image: null, imageUrl: '' };
 
 export default function ProductForm({ product, onSuccess, onClose }) {
   const [form, setForm] = useState(EMPTY);
@@ -15,7 +15,7 @@ export default function ProductForm({ product, onSuccess, onClose }) {
 
   useEffect(() => {
     if (product) {
-      setForm({ name: product.name, price: product.price, description: product.description, category: product.category, stock: product.stock, image: null });
+      setForm({ name: product.name, price: product.price, description: product.description, category: product.category, stock: product.stock, image: null, imageUrl: product.image || '' });
       if (product.image) setPreview(product.image.startsWith('/') ? `http://localhost:5000${product.image}` : product.image);
     }
   }, [product]);
@@ -34,8 +34,11 @@ export default function ProductForm({ product, onSuccess, onClose }) {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === 'image' && files[0]) {
-      setForm((f) => ({ ...f, image: files[0] }));
+      setForm((f) => ({ ...f, image: files[0], imageUrl: '' }));
       setPreview(URL.createObjectURL(files[0]));
+    } else if (name === 'imageUrl') {
+      setForm((f) => ({ ...f, imageUrl: value, image: null }));
+      setPreview(value);
     } else {
       setForm((f) => ({ ...f, [name]: value }));
       if (errors[name]) setErrors((er) => ({ ...er, [name]: '' }));
@@ -48,8 +51,16 @@ export default function ProductForm({ product, onSuccess, onClose }) {
     setLoading(true);
     try {
       const fd = new FormData();
-      Object.entries(form).forEach(([k, v]) => { if (v !== null && v !== '') fd.append(k, v); });
-
+      fd.append('name', form.name);
+      fd.append('price', form.price);
+      fd.append('description', form.description);
+      fd.append('category', form.category);
+      fd.append('stock', form.stock);
+      if (form.image) {
+        fd.append('image', form.image);
+      } else if (form.imageUrl) {
+        fd.append('imageUrl', form.imageUrl);
+      }
       if (isEdit) {
         await API.put(`/products/${product._id}`, fd, { headers: { 'Content-Type': 'multipart/form-data' } });
         toast.success('Product updated!');
@@ -69,13 +80,13 @@ export default function ProductForm({ product, onSuccess, onClose }) {
     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <div className="form-group">
         <label className="form-label">Product Name</label>
-        <input name="name" className={`form-control ${errors.name ? 'error' : ''}`} value={form.name} onChange={handleChange} placeholder="e.g. Wireless Headphones" />
+        <input name="name" className={`form-control ${errors.name ? 'error' : ''}`} value={form.name} onChange={handleChange} placeholder="e.g. Himalayan Honey" />
         {errors.name && <span className="form-error">{errors.name}</span>}
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
         <div className="form-group">
-          <label className="form-label">Price ($)</label>
+          <label className="form-label">Price (Rs.)</label>
           <input name="price" type="number" step="0.01" min="0" className={`form-control ${errors.price ? 'error' : ''}`} value={form.price} onChange={handleChange} placeholder="0.00" />
           {errors.price && <span className="form-error">{errors.price}</span>}
         </div>
@@ -102,10 +113,15 @@ export default function ProductForm({ product, onSuccess, onClose }) {
       </div>
 
       <div className="form-group">
-        <label className="form-label">Product Image</label>
+        <label className="form-label">Image URL (paste a link)</label>
+        <input name="imageUrl" type="text" className="form-control" value={form.imageUrl} onChange={handleChange} placeholder="https://images.unsplash.com/..." />
         {preview && (
-          <img src={preview} alt="preview" style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--border)', marginBottom: 8 }} />
+          <img src={preview} alt="preview" style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, border: '1px solid var(--border)', marginTop: 8 }} />
         )}
+      </div>
+
+      <div className="form-group">
+        <label className="form-label">Or Upload Image File</label>
         <input name="image" type="file" accept="image/*" className="form-control" onChange={handleChange} style={{ padding: '8px' }} />
       </div>
 
