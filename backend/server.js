@@ -25,6 +25,30 @@ app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/orders', require('./routes/orders'));
 
+app.get('/api/seed', async (req, res) => {
+  try {
+    const User = require('./models/User');
+    const Product = require('./models/Product');
+    const Order = require('./models/Order');
+
+    await Product.deleteMany({});
+
+    const admin = await User.findOne({ role: 'admin' });
+
+    await Product.insertMany([
+      { name: 'Nepali Wool Carpet 3x5 ft', price: 8500, description: 'Handwoven pure wool carpet from Kathmandu. Traditional Tibetan design with natural dyes. Durable and beautiful.', category: 'Home & Garden', stock: 10, image: 'https://images.pexels.com/photos/6492397/pexels-photo-6492397.jpeg?auto=compress&cs=tinysrgb&w=500', createdBy: admin._id },
+      { name: 'Mithila Art Painting', price: 3500, description: 'Traditional Mithila art painting from Janakpur. Hand painted by local women artists. Depicts scenes from Hindu mythology.', category: 'Home & Garden', stock: 15, image: 'https://images.pexels.com/photos/3616764/pexels-photo-3616764.jpeg?auto=compress&cs=tinysrgb&w=500', createdBy: admin._id },
+      { name: 'LEGO Classic Set', price: 2200, description: 'Classic LEGO building set with 500 pieces. Perfect for kids of all ages.', category: 'Toys', stock: 25, image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=500', createdBy: admin._id },
+      { name: 'Nepali Ilam Tea 500g', price: 450, description: 'Premium first flush tea from the gardens of Ilam. Rich aroma and smooth taste.', category: 'Food & Grocery', stock: 200, image: 'https://images.pexels.com/photos/1417945/pexels-photo-1417945.jpeg?auto=compress&cs=tinysrgb&w=500', createdBy: admin._id },
+      { name: 'Timur Nepali Pepper 100g', price: 250, description: 'Authentic Nepali Timur from the hills of Nepal. Unique citrusy flavor perfect for traditional Nepali cooking.', category: 'Food & Grocery', stock: 300, image: 'https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=500', createdBy: admin._id },
+    ]);
+
+    res.json({ success: true, message: '🎉 5 products added successfully!' });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 // Temporary seed route - DELETE AFTER USE
 app.get('/api/seed', async (req, res) => {
   try {
