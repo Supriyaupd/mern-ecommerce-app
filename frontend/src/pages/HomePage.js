@@ -90,17 +90,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA Banner ── */}
-      <section className="cta-banner">
-        <div className="container cta-inner">
-          <div>
-            <h2 className="cta-title">Ready to start shopping?</h2>
-            <p style={{ color: 'var(--text-secondary)' }}>Join thousands of happy customers today.</p>
-          </div>
-          <Link to="/products" className="btn btn-primary btn-lg">Explore Products →</Link>
-        </div>
-      </section>
-
     </main>
   );
 }
