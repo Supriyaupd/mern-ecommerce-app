@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import API from '../api';
 import { toast } from 'react-toastify';
 
-const CATEGORIES = ['Electronics','Clothing','Books','Home & Garden','Sports','Toys','Beauty','Automotive','Food & Grocery','Other'];
+const CATEGORIES = ['Clothing','Books','Home & Garden','Toys','Beauty','Food & Grocery','Other'];
 
 const EMPTY = { name: '', price: '', description: '', category: '', stock: '', image: null, imageUrl: '' };
 
