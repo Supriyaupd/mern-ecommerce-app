@@ -77,8 +77,10 @@ exports.createProduct = async (req, res) => {
 
     // Handle uploaded image
     if (req.file) {
-      productData.image = `/uploads/${req.file.filename}`;
-    }
+      productData.image = req.file.path;
+       } else if (req.body.imageUrl) {
+      productData.image = req.body.imageUrl;
+      }
 
     const product = await Product.create(productData);
     res.status(201).json({ success: true, message: 'Product created successfully', product });
@@ -93,8 +95,10 @@ exports.updateProduct = async (req, res) => {
     const updateData = { ...req.body };
 
     if (req.file) {
-      updateData.image = `/uploads/${req.file.filename}`;
-    }
+      updateData.image = req.file.path;
+      } else if (req.body.imageUrl) {
+      updateData.image = req.body.imageUrl;
+      }
 
     const product = await Product.findByIdAndUpdate(
       req.params.id,
