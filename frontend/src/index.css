@@ -33,3 +33,11 @@
 a, a:hover, a:visited, a:active {
   text-decoration: none !important;
 }
+
+.product-card-meta a,
+.product-card-meta span,
+.badge-muted {
+  color: #0d6e5a !important;
+  border-color: #b2d8cb !important;
+  background: rgba(13, 110, 90, 0.08) !important;
+}
