@@ -42,7 +42,7 @@ export default function ProductCard({ product, onEdit, onDelete, isAdminView }) 
 
       <div className="product-card-body">
         <div className="product-card-meta">
-          <span style={{ color: '#0d6e5a', fontSize: '13px', fontWeight: '600' }}>{product.category}</span>
+          <span style={{ color: '#0d6e5a', fontSize: '13px', fontWeight: '400', background: 'none', border: 'none', padding: '0' }}>{product.category}</span>
         </div>
         <h3 className="product-card-name">{product.name}</h3>
         <p className="product-card-desc">{product.description}</p>
