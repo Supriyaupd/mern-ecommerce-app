@@ -1,35 +1,32 @@
 :root {
-  --bg: #ffffff;
+  --bg: #f4faf8;
   --bg-card: #ffffff;
-  --bg-raised: #f5f5f5;
-  --bg-hover: #eeeeee;
-  --border: #e8e0f5;
-  --border-light: #d4c5f0;
+  --bg-raised: #e8f5f0;
+  --bg-hover: #d4ede4;
+  --border: #b2d8cb;
+  --border-light: #80c4ad;
 
-  --accent: #7c3aed;
-  --accent-dim: rgba(124, 58, 237, 0.12);
-  --accent-hover: #6d28d9;
+  --accent: #0d6e5a;
+  --accent-dim: rgba(13, 110, 90, 0.12);
+  --accent-hover: #0a5546;
 
-  --text-primary: #1a1a2e;
-  --text-secondary: #4a4a6a;
-  --text-muted: #9090b0;
+  --text-primary: #0a2e24;
+  --text-secondary: #2d6b57;
+  --text-muted: #5a9e8a;
 
   --danger: #ef4444;
-  --success: #22c55e;
-  --warning: #f59e0b;
+  --success: #16a34a;
+  --warning: #d97706;
 
   --radius-sm: 8px;
   --radius: 16px;
   --radius-lg: 24px;
 
-  --shadow: 0 4px 24px rgba(124, 58, 237, 0.1);
-  --shadow-accent: 0 8px 32px rgba(124, 58, 237, 0.25);
+  --shadow: 0 4px 24px rgba(13, 110, 90, 0.1);
+  --shadow-accent: 0 8px 32px rgba(13, 110, 90, 0.2);
 
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Nunito', sans-serif;
 
   --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-a {
-  text-decoration: none !important;
 }
