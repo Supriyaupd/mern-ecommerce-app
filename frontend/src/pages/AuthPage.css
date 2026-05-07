@@ -20,7 +20,7 @@
 }
 .auth-title {
   font-family: var(--font-display); font-size: 26px; font-weight: 800;
-  letter-spacing: -0.02em; margin-bottom: 6px; color: #0a2e24;
+  letter-spacing: -0.02em; margin-bottom: 6px; color: #0d6e5a;
 }
 .auth-sub { color: #2d6b57; font-size: 14px; }
 .auth-toggle {

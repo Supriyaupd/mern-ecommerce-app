@@ -36,7 +36,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  color: #1a1a1a;
+  color: #0d6e5a;
 }
 .hero-accent {
   color: #0d6e5a;
@@ -185,8 +185,8 @@
 .category-card:hover .cat-name { color: #0d6e5a; }
 
 /* ── Features ── */
-.features-section {
-  background: #e8f5f0;
+  .features-section {
+  background: #ffffff;
   border-top: 1px solid #b2d8cb;
   border-bottom: 1px solid #b2d8cb;
 }
