@@ -1,7 +1,7 @@
 /* ── Hero ── */
 .hero {
   padding: 80px 0 60px;
-  background: linear-gradient(135deg, #f4faf8 0%, #e8f5f0 60%, #d4ede4 100%);
+  background: #ffffff;
   overflow: hidden;
   position: relative;
 }
@@ -36,7 +36,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  color: #0a2e24;
+  color: #1a1a1a;
 }
 .hero-accent {
   color: #0d6e5a;

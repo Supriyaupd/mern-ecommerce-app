@@ -22,6 +22,7 @@ border-bottom: 1px solid #b2d8cb;
 .logo-text {
   font-family: var(--font-display); font-weight: 700; font-size: 18px;
   letter-spacing: -0.03em;
+  color: #0d6e5a;
 }
 .navbar-links {
   display: flex; align-items: center; gap: 4px; margin-left: auto;
