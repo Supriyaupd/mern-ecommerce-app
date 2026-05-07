@@ -164,7 +164,7 @@
 }
 .category-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(13, 110, 90, 0.15);
+  box-shadow: none;
   border-color: #0d6e5a;
 }
 .cat-icon-wrap {
