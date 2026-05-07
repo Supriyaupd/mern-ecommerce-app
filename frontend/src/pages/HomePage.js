@@ -50,7 +50,7 @@ export default function HomePage() {
             {/* Right side — Image */}
             <div className="hero-image-side">
               <img
-                src="https://images.pexels.com/photos/6214155/pexels-photo-6214155.jpeg"
+                src="https://images.pexels.com/photos/5926245/pexels-photo-5926245.jpeg"
                 alt="Shopping"
               />
             </div>
