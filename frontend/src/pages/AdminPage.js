@@ -102,7 +102,7 @@ export default function AdminPage() {
           {[
             { label: 'Total Products', value: stats.totalProducts, icon: '📦' },
             { label: 'Total Orders', value: stats.totalOrders, icon: '🧾' },
-            { label: 'Revenue', value: `$${stats.totalRevenue.toFixed(2)}`, icon: '💰' },
+            { label: 'Revenue', value: `Rs. ${stats.totalRevenue.toLocaleString()}`, icon: '💰' },
             { label: 'Out of Stock', value: stats.outOfStock, icon: '⚠️', warn: stats.outOfStock > 0 },
           ].map((s) => (
             <div key={s.label} className={`stat-card ${s.warn ? 'stat-warn' : ''}`}>
