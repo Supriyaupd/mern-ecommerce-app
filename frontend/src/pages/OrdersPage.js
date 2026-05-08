@@ -93,7 +93,7 @@ export default function OrdersPage() {
                     )}
                     <div className="order-summary-row">
                       <span>Total ({order.items.length} item{order.items.length !== 1 ? 's' : ''})</span>
-                      <span className="order-item-price">Rs. {(item.price * item.quantity).toLocaleString()}</span>
+                      <span className="order-grand-total">Rs. {order.totalAmount.toLocaleString()}</span>
                     </div>
                   </div>
                 )}
