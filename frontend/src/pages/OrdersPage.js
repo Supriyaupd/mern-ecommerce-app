@@ -79,7 +79,7 @@ export default function OrdersPage() {
                         <div key={i} className="order-item">
                           <span className="order-item-name">{item.name}</span>
                           <span className="order-item-qty">× {item.quantity}</span>
-                          <span className="order-item-price">${(item.price * item.quantity).toFixed(2)}</span>
+                          <span className="order-item-price">Rs. {(item.price * item.quantity).toLocaleString()}</span>
                         </div>
                       ))}
                     </div>
